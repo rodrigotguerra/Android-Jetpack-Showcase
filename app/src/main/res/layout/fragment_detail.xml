@@ -3,30 +3,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".view.DetailFragment">
 
-        <Button
-            android:id="@+id/btn_list"
-            android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/iv_dog_image_details"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="List"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_2" />
+            android:layout_alignParentTop="true"
+            android:src="@mipmap/ic_dog"
+            android:scaleType="fitCenter"
+            android:minHeight="200dp"/>
 
         <TextView
-            android:id="@+id/tv_2"
+            android:id="@+id/tv_dog_name_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Details Fragment"
-            app:layout_constraintBottom_toTopOf="@id/btn_list"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="Dog Name"
+            android:layout_below="@id/iv_dog_image_details"
+            style="@style/NameTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="6dp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv_dog_purpose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dog Purpose"
+            android:layout_below="@id/tv_dog_name_details"
+            style="@style/ContentText"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="4dp" />
+        <TextView
+            android:id="@+id/tv_dog_temperament"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dog Temperament"
+            android:layout_below="@id/tv_dog_purpose"
+            style="@style/ContentText"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="4dp" />
+        <TextView
+            android:id="@+id/tv_dog_lifespan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dog Lifespan"
+            android:layout_below="@id/tv_dog_temperament"
+            style="@style/ContentText"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="4dp" />
+
+    </RelativeLayout>
 </layout>
