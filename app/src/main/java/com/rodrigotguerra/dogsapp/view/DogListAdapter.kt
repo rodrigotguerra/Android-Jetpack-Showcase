@@ -1,6 +1,5 @@
 package com.rodrigotguerra.dogsapp.view
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,7 +32,7 @@ class DogListAdapter(private val dogList: ArrayList<DogBreed>) :
 
     override fun onBindViewHolder(holder: DogViewHolder, position: Int) {
         val model = dogList[position]
-        holder.view.tv_dog_name.text = model.dogBreed
+        holder.view.tv_dog_name.text = model.name
         holder.view.tv_lifespan.text = model.lifeSpan
         holder.view.setOnClickListener{
             Navigation.findNavController(it).navigate(ListFragmentDirections.actionDetailFragment())

@@ -40,8 +40,8 @@ viewModel.fetch()
     private fun observeViewModel() {
         viewModel.dogLiveData.observe(this, Observer { dog ->
             dog?.let {
-                tv_dog_name_details.text = dog.dogBreed
-                tv_dog_purpose.text = dog.breedFor
+                tv_dog_name_details.text = dog.name
+                tv_dog_purpose.text = dog.bredFor
                 tv_dog_temperament.text = dog.temperament
                 tv_dog_lifespan.text = dog.lifeSpan
             }

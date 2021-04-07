@@ -1,11 +1,17 @@
 package com.rodrigotguerra.dogsapp.model
 
+import com.google.gson.annotations.SerializedName
+
 data class DogBreed(
-    val breedId: String?,
-    val dogBreed: String?,
+    val id: String?,
+    val name: String?,
+    @SerializedName("life_span")
     val lifeSpan: String?,
+    @SerializedName("breed_group")
     val breedGroup: String?,
-    val breedFor: String?,
+    @SerializedName("bred_for")
+    val bredFor: String?,
     val temperament: String?,
+    @SerializedName("url")
     val imageUrl: String?
 )
