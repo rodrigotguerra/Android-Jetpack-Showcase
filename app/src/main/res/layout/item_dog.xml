@@ -1,16 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data >
+        <variable
+            name="dog"
+            type="com.rodrigotguerra.dogsapp.model.DogBreed" />
+        <variable
+            name="listener"
+            type="com.rodrigotguerra.dogsapp.view.DogClickListener" />
+    </data>
+
     <LinearLayout
         android:layout_height="125dp"
         android:layout_width="match_parent"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:onClick="@{listener::onDogClicked}">
+
+        <TextView
+            android:id="@+id/dog_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="@{String.valueOf(dog.uuid)}" />
 
         <ImageView
             android:id="@+id/iv_dog"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:padding="4dp" />
+            android:padding="4dp"
+            android:image_url="@{dog.imageUrl}"/>
 
         <LinearLayout
             android:layout_width="0dp"
@@ -24,13 +43,13 @@
                 android:id="@+id/tv_dog_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Dog Name"
-                style="@style/NameTitle"/>
+                android:text="@{dog.name}"
+                style="@style/NameTitle" />
             <TextView
                 android:id="@+id/tv_lifespan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lifespan"
+                android:text="@{dog.lifeSpan}"
                 style="@style/ContentText"/>
 
         </LinearLayout>

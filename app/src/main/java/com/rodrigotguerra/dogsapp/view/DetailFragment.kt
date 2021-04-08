@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.rodrigotguerra.dogsapp.R
+import com.rodrigotguerra.dogsapp.databinding.FragmentDetailBinding
 import com.rodrigotguerra.dogsapp.util.getProgressDrawable
 import com.rodrigotguerra.dogsapp.util.loadImage
 import com.rodrigotguerra.dogsapp.viewmodel.DetailViewModel
@@ -18,17 +20,19 @@ class DetailFragment : Fragment() {
 
     private var dogUuid = 0
     private lateinit var viewModel: DetailViewModel
+    private lateinit var dataBinding: FragmentDetailBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detail, container, false)
+    ): View {
+        dataBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_detail, container, false)
+        return dataBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         arguments?.let {
             dogUuid = DetailFragmentArgs.fromBundle(it).dogUuid
         }
@@ -43,16 +47,7 @@ class DetailFragment : Fragment() {
     private fun observeViewModel() {
         viewModel.dogLiveData.observe(this, Observer { dog ->
             dog?.let {
-                tv_dog_name_details.text = dog.name
-                tv_dog_purpose.text = dog.bredFor
-                tv_dog_temperament.text = dog.temperament
-                tv_dog_lifespan.text = dog.lifeSpan
-                context?.let {
-                    iv_dog_image_details.loadImage(
-                        dog.imageUrl,
-                        getProgressDrawable(it)
-                    )
-                }
+                dataBinding.dog = dog
             }
         })
     }

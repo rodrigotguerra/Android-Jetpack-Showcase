@@ -3,6 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data >
+        <variable
+            name="dog"
+            type="com.rodrigotguerra.dogsapp.model.DogBreed" />
+    </data>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,7 +19,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:src="@mipmap/ic_dog"
+            android:image_url="@{dog.imageUrl}"
+            tools:src="@mipmap/ic_dog"
             android:scaleType="fitCenter"
             android:minHeight="200dp"/>
 
@@ -21,7 +28,8 @@
             android:id="@+id/tv_dog_name_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dog Name"
+            android:text="@{dog.name}"
+            tools:text="Dog Name"
             android:layout_below="@id/iv_dog_image_details"
             style="@style/NameTitle"
             android:layout_centerHorizontal="true"
@@ -32,6 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dog Purpose"
+            tools:text="Dog Purpose"
             android:layout_below="@id/tv_dog_name_details"
             style="@style/ContentText"
             android:layout_centerHorizontal="true"
@@ -40,16 +49,19 @@
             android:id="@+id/tv_dog_temperament"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dog Temperament"
+            android:text="@{dog.temperament}"
+            tools:text="Temperament"
             android:layout_below="@id/tv_dog_purpose"
             style="@style/ContentText"
+            android:textAlignment="center"
             android:layout_centerHorizontal="true"
             android:layout_margin="4dp" />
         <TextView
             android:id="@+id/tv_dog_lifespan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dog Lifespan"
+            android:text="@{dog.lifeSpan}"
+            tools:text="Life span"
             android:layout_below="@id/tv_dog_temperament"
             style="@style/ContentText"
             android:layout_centerHorizontal="true"
