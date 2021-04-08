@@ -43,7 +43,7 @@ class ListFragment : Fragment() {
             rv_dogs_list.visibility = View.GONE
             tv_list_error.visibility = View.GONE
             pb_loading_data.visibility = View.VISIBLE
-            viewModel.refresh()
+            viewModel.refreshBypassCache()
             refresh_layout.isRefreshing = false
         }
 

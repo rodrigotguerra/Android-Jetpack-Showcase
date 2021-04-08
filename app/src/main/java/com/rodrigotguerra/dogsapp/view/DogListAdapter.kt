@@ -38,7 +38,9 @@ class DogListAdapter(private val dogList: ArrayList<DogBreed>) :
         holder.view.tv_dog_name.text = model.name
         holder.view.tv_lifespan.text = model.lifeSpan
         holder.view.setOnClickListener{
-            Navigation.findNavController(it).navigate(ListFragmentDirections.actionDetailFragment())
+            val action = ListFragmentDirections.actionDetailFragment()
+            action.dogUuid = dogList[position].uuid
+            Navigation.findNavController(it).navigate(action)
         }
         holder.view.iv_dog.loadImage(dogList[position].imageUrl, getProgressDrawable(holder.view.iv_dog.context))
     }
